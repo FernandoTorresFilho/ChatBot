@@ -1,0 +1,20 @@
+pip install chatterbot
+pip install chatterbot_corpus
+
+from chatterbot import ChatBot
+from chatterbot.trainers import ListTrainer
+
+chatbot = ChatBot("Fernando")
+trainer = ListTrainer(chatbot)
+
+trainer.train([
+               'Olá',
+               'Olá, como vai?',
+               'Vou bem e você?',
+               'Estou bem também'
+])
+
+while True:
+  pergunta = input("Sua Vez: ")
+  resposta = chatbot.get_response(pergunta)
+  print('Bot ', resposta)
